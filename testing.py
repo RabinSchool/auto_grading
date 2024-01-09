@@ -82,3 +82,4 @@ run = CheckAssign([['exercise1', [], [10, 20], ['hello 10', 'hello 20'], 1],
 
 run.run_test()
 run.print_results()
+
