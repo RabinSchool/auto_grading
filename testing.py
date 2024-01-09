@@ -82,22 +82,3 @@ run = CheckAssign([['exercise1', [], [10, 20], ['hello 10', 'hello 20'], 1],
 
 run.run_test()
 run.print_results()
-
-def exercise1():
-    text1 = input("Enter some text: ")
-    print("hello", text1)
-
-    text2 = input("Enter another text: ")
-    print("hello", text2)
-
-
-def exercise3(num):
-    return 1000 + num, 10
-
-
-def exercise2(num):
-    sum = 0
-    for i in range(num):
-        num = int(input("Enter another text: "))
-        sum += num
-    print(sum)
