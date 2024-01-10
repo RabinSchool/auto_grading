@@ -2,7 +2,7 @@ import pandas as pd
 
 def import_tasks(grade,exercise):
   t=[]
-  df = pd.read_csv('/content/tasks.csv',on_bad_lines='skip')
+  df = pd.read_csv('/content/tasks.csv',sep=';',on_bad_lines='skip')
 
   df = df[df['class']==grade]
   df = df[df['exercise']==exercise]
