@@ -15,7 +15,7 @@ def import_tasks(grade,exercise):
     sublist.append([]) if pd.isna( df.loc[i, "in_list"] ) else  sublist.append([df.loc[i, "in_list"] ])
     sublist.append([]) if pd.isna( df.loc[i, "exp_out_list"] ) else  sublist.append([df.loc[i, "exp_out_list"] ])
     sublist.append(int(df.loc[i, "output_type"]))
-    tasks.append(sublist)
+    t.append(sublist)
   return t
 
 class CheckAssignment:
