@@ -1,6 +1,6 @@
 import pandas as pd
 
-def import_tasks():
+def import_tasks(grade,exercise):
   t=[]
   df = pd.read_csv('/content/tasks.csv',on_bad_lines='skip')
 
