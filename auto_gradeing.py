@@ -7,7 +7,7 @@ def import_tasks(grade,exercise):
   df = df[df['class']==grade]
   df = df[df['exercise']==exercise]
   # df = df[df['exercise'].str.contains(1)]
-  print(df[['function','func_arg_list','in_list','exp_out_list','output_type']])
+  # print(df[['function','func_arg_list','in_list','exp_out_list','output_type']])
   for i in range(len(df)):
     sublist=[]
     sublist.append(df.loc[i, "function"])
