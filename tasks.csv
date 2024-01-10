@@ -1,0 +1,5 @@
+year	class	exercise	description	test_number	function	func_arg_list	in_list	exp_out_list	output_type
+2023	8	1		1	exercise1	"10,12"		"'hello 10', 'hello 20'"	1
+2023	8	1		2	exercise1	"10,12"		"'hello 10', 'hello 20'"	1
+2023	8	1		1	exercise2	"10,12"		250	1
+2023	8	1		1	exercise3	"10, 20, 30, 40, 50, 50, 50"		"1040, 10"	2
