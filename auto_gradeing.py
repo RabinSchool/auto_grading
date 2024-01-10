@@ -11,9 +11,9 @@ def import_tasks(grade,exercise):
   for i in range(len(df)):
     sublist=[]
     sublist.append(df.loc[i, "function"])
-    sublist.append([]) if df.loc[i, "func_arg_list"]==None else  sublist.append(df.loc[i, "func_arg_list"])
-    sublist.append([]) if df.loc[i, "in_list"]==None else  sublist.append(df.loc[i, "in_list"] )
-    sublist.append([]) if df.loc[i, "exp_out_list"]==None else  sublist.append(df.loc[i, "exp_out_list"] )
+    sublist.append([]) if df.loc[i, "func_arg_list"]==None else  sublist.append(eval(df.loc[i, "func_arg_list"]))
+    sublist.append([]) if df.loc[i, "in_list"]==None else  sublist.append(eval(df.loc[i, "in_list"] ))
+    sublist.append([]) if df.loc[i, "exp_out_list"]==None else  sublist.append(eval(df.loc[i, "exp_out_list"]) )
     sublist.append(int(df.loc[i, "output_type"]))
     t.append(sublist)
   return t
