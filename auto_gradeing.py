@@ -1,37 +1,18 @@
+tasks1=[
+                                ['exercise1', [], [10, 20], ['hello 10', 'hello 20'], 1],
+                                ['exercise1', [12], [10, 20], ['hello 10', 'hello 20'], 1],
+                                ['exercise2', [7], [10, 20, 30, 40, 50, 50, 50], [250], 1],
+                                ['exercise3', [40], [], [1040, 10], 2]
+      ]
+class CheckAssignment:
 
-def print(*args, **kwargs):
-    if run.test_mode == True:
-        with open('output.txt', "w") as out:
-            __builtin__.print(*args, **kwargs, file=out)
-        with open('output.txt', "r") as out:
-            txt_batch = out.readline().strip()
-
-        run.output_lst.append(txt_batch)
-        return txt_batch
-    else:
-        txt = __builtin__.print(*args, **kwargs)
-        return txt
-
-
-def input(msg):
-
-    if run.test_mode == True:
-        batch_input = run.input_lst[run.input_counter]
-        run.input_counter += 1
-    else:
-        batch_input = __builtin__.input(msg)
-    return batch_input
-
-
-class CheckAssign:
-
-    def __init__(self,tests):
+    def __init__(self):
         self.test_mode = False
         self.input_counter = 0
         self.input_lst = []
         self.output_lst = []
         self.run_results = {}
-        self.runs = tests
+        # self.runs = tests
 
 
 
@@ -65,20 +46,14 @@ class CheckAssign:
             func_call = func + '(' + str(parms)[1:-1] + ')'
             return False, func_call, e
 
-    def run_test(self):
+    def run_test(self,tasks,student_functions):
+        for k,v in student_functions.items():
+            if globals().get(k)==None:
+                globals()[k]=v
         # position4 is 1 for  print , 2 for return
         ex_count = 0
         self.test_mode = True
-        for i in range(len(self.runs)):
-            self.run_results[ex_count] = self.run_task(self.runs[i][0], self.runs[i][1], self.runs[i][2], self.runs[i][3], self.runs[i][4])
+        for i in range(len(tasks)):
+            self.run_results[ex_count] = self.run_task(tasks[i][0], tasks[i][1], tasks[i][2], tasks[i][3], tasks[i][4])
             ex_count += 1
         self.test_mode = False
-
-run = CheckAssign([['exercise1', [], [10, 20], ['hello 10', 'hello 20'], 1],
-        ['exercise1', [12], [10, 20], ['hello 10', 'hello 20'], 1],
-        ['exercise2', [7], [10, 20, 30, 40, 50, 50, 50], [250], 1],
-        ['exercise3', [40], [], [1040, 10], 2]])
-
-run.run_test()
-run.print_results()
-
