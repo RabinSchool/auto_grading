@@ -1,9 +1,23 @@
-tasks1=[
-                                ['exercise1', [], [10, 20], ['hello 10', 'hello 20'], 1],
-                                ['exercise1', [12], [10, 20], ['hello 10', 'hello 20'], 1],
-                                ['exercise2', [7], [10, 20, 30, 40, 50, 50, 50], [250], 1],
-                                ['exercise3', [40], [], [1040, 10], 2]
-      ]
+import pandas as pd
+
+def import_tasks():
+  t=[]
+  df = pd.read_csv('/content/tasks.csv',on_bad_lines='skip')
+
+  df = df[df['class']==grade]
+  df = df[df['exercise']==exercise]
+  # df = df[df['exercise'].str.contains(1)]
+  print(df[['function','func_arg_list','in_list','exp_out_list','output_type']])
+  for i in range(len(df)):
+    sublist=[]
+    sublist.append(df.loc[i, "function"])
+    sublist.append([]) if pd.isna( df.loc[i, "func_arg_list"] ) else  sublist.append([df.loc[i, "func_arg_list"] ])
+    sublist.append([]) if pd.isna( df.loc[i, "in_list"] ) else  sublist.append([df.loc[i, "in_list"] ])
+    sublist.append([]) if pd.isna( df.loc[i, "exp_out_list"] ) else  sublist.append([df.loc[i, "exp_out_list"] ])
+    sublist.append(int(df.loc[i, "output_type"]))
+    tasks.append(sublist)
+  return t
+
 class CheckAssignment:
 
     def __init__(self):
