@@ -110,7 +110,7 @@ def run_test(tasks,student_functions):
             correct_answer+=1
             print(f'Ok {tasks[i][0]}({tasks[i][1]})')
         else:
-            print(f'X  {tasks[i][0]}({tasks[i][1]})', '\n\t\tinputs:        ', tasks[i][2], '\n\t\texpected print:', tasks[i][3], '\n\t\tactual output: ',run.output_lst )
+            print(f'X  {tasks[i][0]}({tasks[i][1]})', '\n\t\tinputs:        ', tasks[i][2], '\n\t\texpected print:', tasks[i][3], '\n\t\tactual output: ',run.output_lst ,'\n\t\tError message:',run_results[ex_count][2])
 
 
         ex_count += 1
