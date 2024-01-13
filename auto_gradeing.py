@@ -1,4 +1,34 @@
+import builtins as __builtin__
 import pandas as pd
+
+run = None
+
+def print(*args,  **kwargs):
+
+    if run != None and run.test_mode==True:
+        with open('output.txt', "w") as out:
+            __builtin__.print(*args, **kwargs, file=out)
+        with open('output.txt', "r") as out:
+            txt_batch = out.readline().strip()
+        run.output_lst.append(txt_batch)
+        return txt_batch
+    else:
+        txt = __builtin__.print(*args, **kwargs)
+        return txt
+
+def input(prompt=None):
+    if run != None and run.test_mode==True:
+        batch_input = run.input_lst[run.input_counter]
+        run.input_counter += 1
+    else:
+        batch_input = __builtin__.input(prompt)
+    return batch_input
+
+def set_run(new_val):
+    global run
+    run=new_val
+
+
 
 def import_tasks(grade,exercise):
   t=[]
