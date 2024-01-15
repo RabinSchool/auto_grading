@@ -1,9 +1,9 @@
 year,class,exercise,description,test_number,function,func_arg_list,in_list,exp_out_list,output_type
-2023,8,1,"title",1,exercise1,"[]","[10,20]","['hello 10', 'hello 20']",1
-2023,8,1,"title",2,exercise1,"[12]","[10,12]","['hello 10', 'hello 20']",1
-2023,8,1,"title",1,exercise2,"[3]","[10,20,30]","[60]",1
-2023,8,1,"title",1,exercise3,"[40]","[]","[1040, 10]",2
-2023,8,1,"title",1,exercise4,"[3]","['hello']","['hellohellohello']",1
-2023,8,1,"title",1,exercise4,"[4]","['tomer']","['tomertomertomer']",1
+2023,8,1,"title",1,ex1,"[]","[10,20]","['hello 10', 'hello 20']",1
+2023,8,1,"title",2,ex1,"[12]","[10,12]","['hello 10', 'hello 20']",1
+2023,8,1,"title",1,ex2,"[3]","[10,20,30]","[60]",1
+2023,8,1,"title",1,ex3,"[40]","[]","[1040, 10]",2
+2023,8,1,"title",1,ex4,"[3]","['hello']","['hellohellohello']",1
+2023,8,1,"title",1,ex4,"[4]","['tomer']","['tomertomertomer']",1
 2023,8,2,"ex02",1,ex2,"[]","[]","['9 -1 20 0.8']",1
 2023,8,2,"ex03",1,ex3,"[]","[]","['red' 'green' 'blue']",1
