@@ -11,16 +11,18 @@ def import_tasks(grade,exercise):
   df = df[df['class']==grade]
   df = df[df['exercise']==exercise]
   # df = df[df['exercise'].str.contains(1)]
-  # print(df[['function','func_arg_list','in_list','exp_out_list','output_type']])
-  for i in range(len(df)):
+  #   print(df[['function','func_arg_list','in_list','exp_out_list','output_type']])
+
+  for key, value in df.iterrows():
     sublist=[]
-    sublist.append(df.loc[i, "function"])
-    sublist.append([]) if df.loc[i, "func_arg_list"]==None else  sublist.append(eval(df.loc[i, "func_arg_list"]))
-    sublist.append([]) if df.loc[i, "in_list"]==None else  sublist.append(eval(df.loc[i, "in_list"] ))
-    sublist.append([]) if df.loc[i, "exp_out_list"]==None else  sublist.append(eval(df.loc[i, "exp_out_list"]) )
-    sublist.append(int(df.loc[i, "output_type"]))
+    sublist.append(value["function"])
+    sublist.append([]) if value["func_arg_list"]==None else  sublist.append(eval(value["func_arg_list"]))
+    sublist.append([]) if value["in_list"]==None else  sublist.append(eval(value["in_list"] ))
+    sublist.append([]) if value["exp_out_list"]==None else  sublist.append(eval(value["exp_out_list"]) )
+    sublist.append(int(value["output_type"]))
     t.append(sublist)
   return t
+
 
 run = None
 print('autograde before update',id(run),id(print))
