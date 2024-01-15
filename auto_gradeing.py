@@ -110,7 +110,7 @@ def run_test(tasks,student_functions):
         run.test_mode = False
         if run_results[ex_count][0]==True:
             correct_answer+=1
-            print(f'Ok {tasks[i][0]}({tasks[i][1]})', '\n\t\tinputs:        ', tasks[i][2])
+            print(f'Ok {tasks[i][0]}({tasks[i][1]})',  '\tinputs:        ', tasks[i][2], '\texpected print:', tasks[i][3], '\tactual output: ',run.output_lst )
         else:
             print(f'X  {tasks[i][0]}({tasks[i][1]})', '\n\t\tinputs:        ', tasks[i][2], '\n\t\texpected print:', tasks[i][3], '\n\t\tactual output: ',run.output_lst ,'\n\t\tError message:',run_results[ex_count][2])
 
