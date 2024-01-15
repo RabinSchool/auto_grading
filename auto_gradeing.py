@@ -6,7 +6,7 @@ import builtins as __builtin__
 
 def import_tasks(grade,exercise):
   t=[]
-  df = pd.read_csv('./tasks.csv',sep=',',on_bad_lines='skip',encoding="utf8")
+  df = pd.read_csv('./tasks.csv',sep=',',on_bad_lines='skip',encoding="latin1")
 
   df = df[df['class']==grade]
   df = df[df['exercise']==exercise]
@@ -29,9 +29,9 @@ print('autograde before update',id(run),id(print))
 def print(*args,  **kwargs):
 
     if run != None and run.test_mode==True:
-        with open('output.txt', "w",encoding="utf8") as out:
+        with open('output.txt', "w",encoding="latin1") as out:
             __builtin__.print(*args, **kwargs, file=out)
-        with open('output.txt', "r",encoding="utf8") as out:
+        with open('output.txt', "r",encoding="latin1") as out:
             txt_batch = out.readline().strip()
         run.output_lst.append(txt_batch)
         return txt_batch
