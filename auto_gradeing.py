@@ -110,19 +110,20 @@ def run_test(tasks,student_functions):
         run.test_mode = False
         if run_results[ex_count][0]==True:
             correct_answer+=1
-            output = f'Ok {tasks[i][0]}({tasks[i][1]})',  '\tinputs:        ', tasks[i][2], '\texpected print:', tasks[i][3], '\tactual output: ',run.output_lst 
-            # print(output)
+            output = f'Ok {tasks[i][0]}({tasks[i][1]})  \tinputs:        {tasks[i][2]} \texpected print: {tasks[i][3]} \tactual output: {run.output_lst} '
+            print(output)
             output += output +'\n'
         else:
-            output = f'X  {tasks[i][0]}({tasks[i][1]})', '\n\t\tinputs:        ', tasks[i][2], '\n\t\texpected print:', tasks[i][3], '\n\t\tactual output: ',run.output_lst ,'\n\t\tError message:',run_results[ex_count][2]
-            # print(output)
+            output = f'Ok {tasks[i][0]}({tasks[i][1]})  \tinputs:        {tasks[i][2]} \texpected print: {tasks[i][3]} \tactual output: {run.output_lst}  \n\t\tError message: {run_results[ex_count][2]}'
+            print(output)
             output += output +'\n'
 
 
         ex_count += 1
-    # print('----------')
-    # print('grade:',round(100 * correct_answer / len(run_results)))
+    print('----------')
+    print('grade:',round(100 * correct_answer / len(run_results)))
     score =round(100 * correct_answer / len(run_results))
     return score,output
+
 
 
