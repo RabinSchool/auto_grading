@@ -93,7 +93,7 @@ class CheckAssignment:
             return False, func_call, e
 
 def run_test(tasks,student_functions):
-    correct_answer = 0
+    output = ''
     correct_answer = 0
     run_results = {}
     for k,v in student_functions.items():
