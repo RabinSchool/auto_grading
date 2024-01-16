@@ -113,13 +113,13 @@ def run_test(tasks,student_functions):
             correct_answer+=1
             output += f'Ok {tasks[i][0]}({tasks[i][1]})  \tinputs:        {tasks[i][2]} \texpected print: {tasks[i][3]} \tactual output: {run.output_lst} '
 
-            output += output +'\n'
+            output +=  '\n'
         else:
             output += f'Ok {tasks[i][0]}({tasks[i][1]})  \tinputs:        {tasks[i][2]} \texpected print: {tasks[i][3]} \tactual output: {run.output_lst}  \n\t\tError message: {run_results[ex_count][2]}'
 
-            output += output +'\n'
+            output += '\n'
 
-
+        print(output)
         ex_count += 1
 
     score =round(100 * correct_answer / len(run_results))
