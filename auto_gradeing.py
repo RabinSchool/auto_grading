@@ -111,11 +111,11 @@ def run_test(tasks,student_functions):
         run.test_mode = False
         if run_results[ex_count][0]==True:
             correct_answer+=1
-            output += f'Ok {tasks[i][0]}({"" if tasks[i][1]==[] else tasks[i][1]})  \tinputs:        {tasks[i][2]} \texpected print: {tasks[i][3]} \tactual output: {run.output_lst} '
+            output += f'Ok {tasks[i][0]}({"" if tasks[i][1]==[] else tasks[i][1]})  \tinput: {tasks[i][2]} \tactual output: {run.output_lst} \texpected print: {tasks[i][3]}  '
             # print(output)
             output += '\n'
         else:
-            output += f'X  {tasks[i][0]}({"" if tasks[i][1]==[] else tasks[i][1]})  \tinputs:        {tasks[i][2]} \texpected print: {tasks[i][3]} \tactual output: {run.output_lst}  \tError message: {run_results[ex_count][2]}'
+            output += f'X  {tasks[i][0]}({"" if tasks[i][1]==[] else tasks[i][1]})  \tinput: {tasks[i][2]} \tactual output: {run.output_lst} \texpected print: {tasks[i][3]}   \tError message: {run_results[ex_count][2]}'
             # print(output)
             output += '\n'
 
