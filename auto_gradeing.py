@@ -82,12 +82,11 @@ class CheckAssignment:
             if result_type == 1:
                 expected_result = [str(x) for x in expected_result]
                 return (self.output_lst == expected_result), func_call, '' if (
-                        self.output_lst == expected_result) else 'expected print: ' + str(
-                    expected_result) + ' printed: ' + str(self.output_lst)
+                        self.output_lst == expected_result) else 'printed != expected'
             else:
                 return (expected_result == list(result)), func_call, '' if (
-                        expected_result == list(result)) else 'expected return: ' + str(
-                    expected_result) + ' returned: ' + str(result)
+                        expected_result == list(result)) else 'returned: ' + str(
+                    result) + '!= expected return:' + str(expected_result)
         except Exception as e:
             func_call = func + '(' + str(parms)[1:-1] + ')'
             return False, func_call, e
@@ -109,13 +108,14 @@ def run_test(tasks,student_functions):
         run.test_mode = True
         run_results[ex_count] = run.run_task(tasks[i][0], tasks[i][1], tasks[i][2], tasks[i][3], tasks[i][4])
         run.test_mode = False
+        output_type_text = 'print' if output_type==1 else 'return'
         if run_results[ex_count][0]==True:
             correct_answer+=1
-            output += f'Ok {tasks[i][0]}({"" if tasks[i][1]==[] else tasks[i][1]})  \tinput: {tasks[i][2]} \tprinted: {run.output_lst} \texpected print: {tasks[i][3]}  '
+            output += f'Ok {tasks[i][0]}({"" if tasks[i][1]==[] else tasks[i][1]})  \tinput: {tasks[i][2]} \t{output_type_text}ed: {run.output_lst} \texpected {output_type_text}: {tasks[i][3]}  '
             # print(output)
             output += '\n'
         else:
-            output += f'X  {tasks[i][0]}({"" if tasks[i][1]==[] else tasks[i][1]})  \tinput: {tasks[i][2]} \tprinted: {run.output_lst} \texpected print: {tasks[i][3]}   \tError message: {run_results[ex_count][2]}'
+            output += f'X  {tasks[i][0]}({"" if tasks[i][1]==[] else tasks[i][1]})  \tinput: {tasks[i][2]} \t{output_type_text}ed: {run.output_lst} \texpected {output_type_text}: {tasks[i][3]}   \tError message: {run_results[ex_count][2]}'
             # print(output)
             output += '\n'
 
