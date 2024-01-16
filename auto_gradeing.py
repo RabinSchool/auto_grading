@@ -119,5 +119,10 @@ def run_test(tasks,student_functions):
             # print(output)
             output += output +'\n'
 
+        ex_count += 1
+    # print('----------')
+    # print('grade:',round(100 * correct_answer / len(run_results)))
+    score =round(100 * correct_answer / len(run_results))
+    return score,output
 
 
