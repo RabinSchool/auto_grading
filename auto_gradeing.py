@@ -111,11 +111,11 @@ def run_test(tasks,student_functions):
         run.test_mode = False
         if run_results[ex_count][0]==True:
             correct_answer+=1
-            output += f'Ok {tasks[i][0]}({tasks[i][1]})  \tinputs:        {tasks[i][2]} \texpected print: {tasks[i][3]} \tactual output: {run.output_lst} '
+            output += f'Ok {tasks[i][0]}({tasks[i][1]})  \tinput:  {tasks[i][2]} \tprinted: {run.output_lst} \texpected: {tasks[i][3]}  '
 
             output +=  '\n'
         else:
-            output += f'Ok {tasks[i][0]}({tasks[i][1]})  \tinputs:        {tasks[i][2]} \texpected print: {tasks[i][3]} \tactual output: {run.output_lst}  \n\t\tError message: {run_results[ex_count][2]}'
+            output += f'X  {tasks[i][0]}({tasks[i][1]})  \tinput:  {tasks[i][2]} \tprinted: {run.output_lst} \texpected: {tasks[i][3]}  \n\t\tError message: {run_results[ex_count][2]}'
 
             output += '\n'
 
