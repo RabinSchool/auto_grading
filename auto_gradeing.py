@@ -108,7 +108,7 @@ def run_test(tasks,student_functions):
         run.test_mode = True
         run_results[ex_count] = run.run_task(tasks[i][0], tasks[i][1], tasks[i][2], tasks[i][3], tasks[i][4])
         run.test_mode = False
-        output_type_text = 'print' if output_type==1 else 'return'
+        output_type_text = 'print' if tasks[i][4]==1 else 'return'
         if run_results[ex_count][0]==True:
             correct_answer+=1
             output += f'Ok {tasks[i][0]}({"" if tasks[i][1]==[] else tasks[i][1]})  \tinput: {tasks[i][2]} \t{output_type_text}ed: {run.output_lst} \texpected {output_type_text}: {tasks[i][3]}  '
