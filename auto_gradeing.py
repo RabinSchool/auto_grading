@@ -6,7 +6,7 @@ import builtins as __builtin__
 
 def import_tasks(grade,exercise):
   t=[]
-  df = pd.read_csv('./tasks.csv',sep=',',on_bad_lines='skip',encoding='iso8859_8')
+  df = pd.read_csv('./tasks.csv',sep=',',on_bad_lines='skip',encoding='utf-8',encoding_errors='ignore')
 
   df = df[df['class']==grade]
   df = df[df['exercise']==exercise]
