@@ -119,7 +119,7 @@ def run_test(tasks,student_functions):
 
             output += '\n'
 
-        print(output)
+
         ex_count += 1
 
     score =round(100 * correct_answer / len(run_results))
