@@ -113,11 +113,11 @@ def run_test(tasks,student_functions):
             correct_answer+=1
             output += f'Ok {tasks[i][0]}({"" if tasks[i][1]==[] else tasks[i][1]})  \tinputs:        {tasks[i][2]} \texpected print: {tasks[i][3]} \tactual output: {run.output_lst} '
             # print(output)
-            output += output +'\n'
+            output += '\n'
         else:
             output += f'X  {tasks[i][0]}({"" if tasks[i][1]==[] else tasks[i][1]})  \tinputs:        {tasks[i][2]} \texpected print: {tasks[i][3]} \tactual output: {run.output_lst}  \tError message: {run_results[ex_count][2]}'
             # print(output)
-            output += output +'\n'
+            output += '\n'
 
         ex_count += 1
     # print('----------')
