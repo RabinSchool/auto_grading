@@ -104,7 +104,7 @@ def run_test(tasks,student_functions):
     ex_count = 0
     global run
     run=CheckAssignment()
-
+    # tasks = function :0 , func_arg_list :1 ,   in_list :2  ,  exp_out_list :3  ,  output_type :4
     for i in range(len(tasks)):
         run.test_mode = True
         run_results[ex_count] = run.run_task(tasks[i][0], tasks[i][1], tasks[i][2], tasks[i][3], tasks[i][4])
