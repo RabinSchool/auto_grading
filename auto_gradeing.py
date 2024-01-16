@@ -25,7 +25,7 @@ def import_tasks(grade,exercise):
 
 
 run = None
-print('autograde before update',id(run),id(print))
+
 def print(*args,  **kwargs):
 
     if run != None and run.test_mode==True:
