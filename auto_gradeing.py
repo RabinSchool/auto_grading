@@ -94,6 +94,7 @@ class CheckAssignment:
 
 def run_test(tasks,student_functions):
     correct_answer = 0
+    correct_answer = 0
     run_results = {}
     for k,v in student_functions.items():
         if globals().get(k)==None:
@@ -110,11 +111,11 @@ def run_test(tasks,student_functions):
         run.test_mode = False
         if run_results[ex_count][0]==True:
             correct_answer+=1
-            output = f'Ok {tasks[i][0]}({tasks[i][1]})  \tinputs:        {tasks[i][2]} \texpected print: {tasks[i][3]} \tactual output: {run.output_lst} '
+            output += f'Ok {tasks[i][0]}({tasks[i][1]})  \tinputs:        {tasks[i][2]} \texpected print: {tasks[i][3]} \tactual output: {run.output_lst} '
 
             output += output +'\n'
         else:
-            output = f'Ok {tasks[i][0]}({tasks[i][1]})  \tinputs:        {tasks[i][2]} \texpected print: {tasks[i][3]} \tactual output: {run.output_lst}  \n\t\tError message: {run_results[ex_count][2]}'
+            output += f'Ok {tasks[i][0]}({tasks[i][1]})  \tinputs:        {tasks[i][2]} \texpected print: {tasks[i][3]} \tactual output: {run.output_lst}  \n\t\tError message: {run_results[ex_count][2]}'
 
             output += output +'\n'
 
