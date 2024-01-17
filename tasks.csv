@@ -31,7 +31,7 @@ year,class,exercise,description,test_number,function,func_arg_list,in_list,exp_o
 2023,8,11,"wordnextletter",2,ex5,"[]","['hello','l']","['num=2']","[None]"
 2023,8,11,"cohencount",1,ex6,"[]","[5,'tomer tubi','tal cohen','timor levi','yali cohen','adi']","[2]","[None]"
 2023,8,11,"cohencount",1,ex6,"[]","[5,'tomer tubi','timor levi']","[0]","[None]"
-2023,8,11,"first_last",1,ex7,"[]","['Cats and dogs are great friends']","[C*s]","[None]"
+2023,8,11,"first_last",1,ex7,"[]","['Cats and dogs are great friends']","['C*s']","[None]"
 2023,8,11,"first_last",1,ex7,"[]","['Dogs and cats']","['D*s']","[None]"
 2023,8,11,"middel",1,ex8,"[]","['abcde']","['c']","[None]"
 2023,8,11,"middel",1,ex8,"[]","['abcd']","['bc']","[None]"
