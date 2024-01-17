@@ -85,7 +85,7 @@ class CheckAssignment:
                 True,func_call,'Excellent'
               else:
                 False,func_call,f'Returned: {str(result)} != Expected return: {str(return_values)}'
-            else
+            else:
               if (return_values == list(result)):
                 False,func_call,f'Printed: {str(self.output_lst)} != Expected print: {str(expected_result)}'
               else:
