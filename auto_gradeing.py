@@ -120,7 +120,7 @@ def run_test(tasks,student_functions):
             # print(output)
             output += '\n'
         else:
-            output += f'X  {tasks[i][0]}({"" if tasks[i][1]==[] else tasks[i][1]})  \tinput: {tasks[i][2]} \tError message: {run_results[ex_count][2]}'
+            output += f'X  {tasks[i][0]}({"" if tasks[i][1]==[] else tasks[i][1]})  \tinput: {tasks[i][2]} \tMessage: {run_results[ex_count][2]}'
             # print(output)
             output += '\n'
 
