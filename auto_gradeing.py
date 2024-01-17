@@ -11,7 +11,7 @@ def import_tasks(grade,exercise):
   df = df[df['class']==grade]
   df = df[df['exercise']==exercise]
   # df = df[df['exercise'].str.contains(1)]
-  #   print(df[['function','func_arg_list','in_list','exp_out_list','output_type']])
+  #   print(df[['function','func_arg_list','in_list','exp_out_list','return_values']])
 
   for key, value in df.iterrows():
     sublist=[]
@@ -19,7 +19,7 @@ def import_tasks(grade,exercise):
     sublist.append([]) if value["func_arg_list"]==None else  sublist.append(eval(value["func_arg_list"]))
     sublist.append([]) if value["in_list"]==None else  sublist.append(eval(value["in_list"] ))
     sublist.append([]) if value["exp_out_list"]==None else  sublist.append(eval(value["exp_out_list"]) )
-    sublist.append(int(value["output_type"]))
+    sublist.append([]) if value["return_values"]==None else  sublist.append(eval(value["return_values"]) )
     t.append(sublist)
   return t
 
@@ -66,7 +66,7 @@ class CheckAssignment:
 
 
 
-    def run_task(self,func, parms, in_list, expected_result, result_type):
+    def run_task(self,func, parms, in_list, expected_result, return_values):
         try:
 
             self.input_lst=in_list
@@ -79,14 +79,19 @@ class CheckAssignment:
                 result = [result]
 
             func_call = func + '(' + str(parms)[1:-1] + ')'
-            if result_type == 1:
-                expected_result = [str(x) for x in expected_result]
-                return (self.output_lst == expected_result), func_call, '' if (
-                        self.output_lst == expected_result) else 'printed != expected'
-            else:
-                return (expected_result == list(result)), func_call, '' if (
-                        expected_result == list(result)) else 'returned: ' + str(
-                    result) + '!= expected return:' + str(expected_result)
+            expected_result = [str(x) for x in expected_result]
+            if self.output_lst == expected_result:
+              if (return_values == list(result)):
+                True,func_call,'Excellent'
+              else:
+                False,func_call,f'Returned: {str(result)} != Expected return: {str(return_values)}'
+            else
+              if (return_values == list(result)):
+                False,func_call,f'Printed: {str(self.output_lst)} != Expected print: {str(expected_result)}'
+              else:
+                False,func_call,f'Returned: {result} != Expected return: {str(return_values)} and Printed: {str(self.output_lst)} != Expected print: {str(expected_result)}'
+          
+
         except Exception as e:
             func_call = func + '(' + str(parms)[1:-1] + ')'
             return False, func_call, e
@@ -103,19 +108,19 @@ def run_test(tasks,student_functions):
     ex_count = 0
     global run
     run=CheckAssignment()
-    # tasks = function :0 , func_arg_list :1 ,   in_list :2  ,  exp_out_list :3  ,  output_type :4
+    # tasks = function :0 , func_arg_list :1 ,   in_list :2  ,  exp_out_list :3  ,  return_values :4
     for i in range(len(tasks)):
         run.test_mode = True
         run_results[ex_count] = run.run_task(tasks[i][0], tasks[i][1], tasks[i][2], tasks[i][3], tasks[i][4])
         run.test_mode = False
-        output_type_text = 'print' if tasks[i][4]==1 else 'return'
+
         if run_results[ex_count][0]==True:
             correct_answer+=1
-            output += f'Ok {tasks[i][0]}({"" if tasks[i][1]==[] else tasks[i][1]})  \tinput: {tasks[i][2]} \t{output_type_text}ed: {run.output_lst} \texpected {output_type_text}: {tasks[i][3]}  '
+            output += f'Ok {tasks[i][0]}({"" if tasks[i][1]==[] else tasks[i][1]})  \tinput: {tasks[i][2]}  '
             # print(output)
             output += '\n'
         else:
-            output += f'X  {tasks[i][0]}({"" if tasks[i][1]==[] else tasks[i][1]})  \tinput: {tasks[i][2]} \t{output_type_text}ed: {run.output_lst} \texpected {output_type_text}: {tasks[i][3]}   \tError message: {run_results[ex_count][2]}'
+            output += f'X  {tasks[i][0]}({"" if tasks[i][1]==[] else tasks[i][1]})  \tinput: {tasks[i][2]} \tError message: {run_results[ex_count][2]}'
             # print(output)
             output += '\n'
 
