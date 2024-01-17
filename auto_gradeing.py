@@ -82,14 +82,14 @@ class CheckAssignment:
             expected_result = [str(x) for x in expected_result]
             if self.output_lst == expected_result:
               if (return_values == list(result)):
-                True,func_call,'Excellent'
+                return True,func_call,'Excellent'
               else:
-                False,func_call,f'Returned: {str(result)} != Expected return: {str(return_values)}'
+                return False,func_call,f'Returned: {str(result)} != Expected return: {str(return_values)}'
             else:
               if (return_values == list(result)):
-                False,func_call,f'Printed: {str(self.output_lst)} != Expected print: {str(expected_result)}'
+                return False,func_call,f'Printed: {str(self.output_lst)} != Expected print: {str(expected_result)}'
               else:
-                False,func_call,f'Returned: {result} != Expected return: {str(return_values)} and Printed: {str(self.output_lst)} != Expected print: {str(expected_result)}'
+                return False,func_call,f'Returned: {result} != Expected return: {str(return_values)} and Printed: {str(self.output_lst)} != Expected print: {str(expected_result)}'
           
 
         except Exception as e:
