@@ -4,12 +4,13 @@ import builtins as __builtin__
 
 
 
-def import_tasks(grade,exercise):
+def import_tasks(grade,exercise,questions ):
   t=[]
   df = pd.read_csv('./tasks.csv',sep=',',on_bad_lines='skip',encoding='cp1255')
 
   df = df[df['class']==grade]
   df = df[df['exercise']==exercise]
+  df = df[df['function'].isin([f'ex{str(q)}' for q in questions]) ]
   # df = df[df['exercise'].str.contains(1)]
   #   print(df[['function','func_arg_list','in_list','exp_out_list','return_values']])
 
