@@ -37,7 +37,7 @@ year,class,exercise,description,test_number,function,func_arg_list,in_list,exp_o
 2023,8,11,"middel",1,ex8,"[]","['abcd']","['bc']","[None]"
 2023,8,11,"threestart_end",1,ex9,"[]","['tomer tubi']","['tomubi']","[None]"
 2023,8,11,"threestart_end",1,ex9,"[]","['to']","['***']","[None]"
-2023,8,11,"hundred_units_equal",1,ex10,"[]","[234]","['not equal]","[None]"
+2023,8,11,"hundred_units_equal",1,ex10,"[]","[234]","['not equal']","[None]"
 2023,8,11,"hundred_units_equal",1,ex10,"[]","[838]","['equal']","[None]"
 2023,8,11,"rashai_tevot",1,ex11,"[]","['American Standard Code Information Interchange']","['ASCII']","[None]"
 2023,8,11,"rashai_tevot",1,ex11,"[]","['Home Work']","['HW']","[None]"
