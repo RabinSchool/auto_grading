@@ -128,7 +128,10 @@ def run_test(tasks,student_functions):
         ex_count += 1
     # print('----------')
     # print('grade:',round(100 * correct_answer / len(run_results)))
-    score =round(100 * correct_answer / len(run_results))
+    if  len(run_results)!=0:
+      score =round(100 * correct_answer / len(run_results))
+    else:
+      score = 0
     return score,output
 
 
