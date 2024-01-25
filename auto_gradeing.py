@@ -35,7 +35,8 @@ def import_tasks(grade,exercise,questions ):
   df = pd.read_csv('./tasks.csv',sep=',',on_bad_lines='skip',encoding='utf-8')
 
   df = df[df['class']==grade]
-  df = df[df['exercise']==exercise]
+  df.exercise = df.exercise.astype(str)
+  df = df[df['exercise'].isin([str(exercise)])]    
   df = df[df['function'].isin([f'ex{str(q)}' for q in questions]) ]
   # df = df[df['exercise'].str.contains(1)]
   #   print(df[['function','func_arg_list','in_list','exp_out_list','return_values']])
