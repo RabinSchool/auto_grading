@@ -24,8 +24,8 @@ questions_dic={
    }
 
 def get_questions(exercise_key):
-  if questions_dic.get(key)!=None:
-    return questions_dic[key]
+  if questions_dic.get(exercise_key)!=None:
+    return questions_dic[exercise_key]
   else:
     return []
   
