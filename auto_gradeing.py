@@ -2,7 +2,33 @@ import pandas as pd
 import urllib.request
 import builtins as __builtin__
 
+questions_dic={
+    '2':[2,3,4],
+    '3':[9,10,11,12,13,14,15],
+    '4':[4,5,6,7,8,9],
+    '5':[1,2,3,4,5,6,7],
+    '6':[2,3,4,5,6],
+    '7a':[2,3,4,5,6,7,8,9,10,11,12],
+    '7b':[100,101,102,103,104,107],
+    '8a':[2,3,4,5],
+    '8b':[11,12,13,14,15,16,17,18],
+    '9':[],
+    '10':[],
+    '11':[4,6,7,8,9,10,11,12,13,14], # strings
+    '12':['3a','3b','4a','4b','5a','5b','6a',6,'7a','7b','8a','8b','9a','9b'], # functions
+    '12a':['3a','3b','4a','4b','5a','5b','6a',6,'7a','7b'], # functions
+    '12b':['8a','8b','9a','9b'], # functions
+    '13a':[5,6,7,8],
+    '13b':[101,102,103,104,105,106,107],
+    '14':[201,202,203,204]
+   }
 
+def get_questions(exercise_key):
+  if questions_dic.get(key)!=None:
+    return questions_dic[key]
+  else:
+    return []
+  
 
 def import_tasks(grade,exercise,questions ):
   t=[]
