@@ -4,24 +4,24 @@ import builtins as __builtin__
 
 # the key is the MD file source
 questions_dic={
-    '2':[2,3,4],
-    '3':[9,10,11,12,13,14,15],
-    '4':[4,5,6,7,8,9],
-    '5':[1,2,3,4,5,6,7],
-    '6':[2,3,4,5,6],
-    '7a':[2,3,4,5,6,7,8,9,10,11,12],
-    '7b':[100,101,102,103,104,107],
-    '8a':[2,3,4,5],
-    '8b':[11,12,13,14,15,16,17,18],
+    '2':['ex2','ex3','ex4'],
+    '3':['ex9','ex10','ex11','ex12','ex13','ex14','ex15'],
+    '4':['ex4','ex5','ex6','ex7','ex8','ex9'],
+    '5':['ex1','ex2','ex3','ex4','ex5','ex6','ex7'],
+    '6':['ex2','ex3','ex4','ex5','ex6'],
+    '7a':['ex2','ex3','ex4','ex5','ex6','ex7','ex8','ex9','ex10','ex11','ex12'],
+    '7b':['ex100','ex101','ex102','ex103','ex104','ex107'],
+    '8a':['ex2','ex3','ex4','ex5'],
+    '8b':['ex11','ex12','ex13','ex14','ex15','ex16','ex17','ex18'],
     '9':[],
     '10':[],
-    '11':[4,6,7,8,9,10,11,12,13,14], # strings
+    '11':['ex4','ex6','ex7','ex8','ex9','ex10','ex11','ex12','ex13','ex14'], # strings
     # '12':['3a','3b','4a','4b','5a','5b','6a',6,'7a','7b','8a','8b','9a','9b'], # functions
-    '12a':['3a','3b','4a','4b','how_many_legs','5','6a',6,'7a','7b'], # functions
-    '12b':['8a','8b','9a','9b'], # functions
-    '13a':[5,6,7,8],
-    '13b':[101,102,103,104,105,106,107],
-    '14':[201,202,203,204]
+    '12a':['ex3a','ex3b','ex4a','ex4b','how_many_legs','ex5','ex6a',6,'ex7a','ex7b'], # functions
+    '12b':['ex8a','ex8b','ex9a','ex9b'], # functions
+    '13a':['ex5','ex6','ex7','ex8'],
+    '13b':['ex101','ex102','ex103','ex104','ex105','ex106','ex107'],
+    '14':['ex201','ex202','ex203','ex204']
    }
 
 def get_questions(exercise_key):
@@ -40,7 +40,7 @@ def import_tasks(grade,question_set,questions ):
   # ignore last letter of exercise_set
   exerciser_set=str(question_set)[:-1] if not str(question_set).isnumeric() else str(question_set)
   df = df[df['question_set'].isin([exerciser_set])]     
-  df = df[df['function'].isin([f'ex{str(q)}' for q in questions]) ]
+  df = df[df['function'].isin([f'{str(q)}' for q in questions]) ]
   # df = df[df['question_set'].str.contains(1)]
   #   print(df[['function','func_arg_list','in_list','exp_out_list','return_values']])
 
