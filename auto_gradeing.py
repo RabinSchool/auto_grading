@@ -30,15 +30,15 @@ def get_questions(exercise_key):
     return []
   
 
-def import_tasks(grade,exercise,questions ):
+def import_tasks(grade,question_set,questions ):
   t=[]
   df = pd.read_csv('./tasks.csv',sep=',',on_bad_lines='skip',encoding='utf-8')
 
   df = df[df['class']==grade]
-  df.exercise = df.exercise.astype(str)
-  df = df[df['exercise'].isin([str(exercise)])]    
+  df.question_set = df.question_set.astype(str)
+  df = df[df['question_set'].isin([str(question_set)])]    
   df = df[df['function'].isin([f'ex{str(q)}' for q in questions]) ]
-  # df = df[df['exercise'].str.contains(1)]
+  # df = df[df['question_set'].str.contains(1)]
   #   print(df[['function','func_arg_list','in_list','exp_out_list','return_values']])
 
   for key, value in df.iterrows():
