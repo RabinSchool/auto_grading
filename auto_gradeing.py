@@ -16,7 +16,7 @@ questions_dic={
     '9':[],
     '10':[],
     '11':[4,6,7,8,9,10,11,12,13,14], # strings
-    '12':['3a','3b','4a','4b','5a','5b','6a',6,'7a','7b','8a','8b','9a','9b'], # functions
+    # '12':['3a','3b','4a','4b','5a','5b','6a',6,'7a','7b','8a','8b','9a','9b'], # functions
     '12a':['3a','3b','4a','4b','5a','5b','6a',6,'7a','7b'], # functions
     '12b':['8a','8b','9a','9b'], # functions
     '13a':[5,6,7,8],
@@ -37,7 +37,8 @@ def import_tasks(grade,question_set,questions ):
 
   df = df[df['class']==grade]
   df.question_set = df.question_set.astype(str)
-  df = df[df['question_set'].isin([str(question_set)])]    
+  # ignore last letter of exercise_set
+  df = df[df['question_set'].isin([str(question_set)[:-1])]    
   df = df[df['function'].isin([f'ex{str(q)}' for q in questions]) ]
   # df = df[df['question_set'].str.contains(1)]
   #   print(df[['function','func_arg_list','in_list','exp_out_list','return_values']])
