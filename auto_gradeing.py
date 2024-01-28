@@ -24,7 +24,11 @@ questions_dic={
     '14':['ex201','ex202','ex203','ex204']
    }
 
+curr_exercise_key = 0
+
 def get_questions(exercise_key):
+  global curr_exercise_key
+  curr_exercise_key = exercise_key
   if questions_dic.get(exercise_key)!=None:
     return questions_dic[exercise_key]
   else:
@@ -159,7 +163,14 @@ def run_test(tasks,student_functions):
     # print('----------')
     # print('grade:',round(100 * correct_answer / len(run_results)))
     if  len(run_results)!=0:
-      score =round(100 * correct_answer / len(run_results))
+      if questions_dic.get(curr_exercise_key)!=None :
+          if len(student_functions.keys())>len(questions_dic[curr_exercise_key]):
+              question_grade=80
+          else:
+              question_grade=80* len(student_functions.keys())/len(questions_dic[curr_exercise_key])
+      else:
+          question_grade=0
+      score =round(question_grade+ 20 * correct_answer / len(run_results))
     else:
       score = 0
     return score,output
