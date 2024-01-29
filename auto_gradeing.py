@@ -131,6 +131,16 @@ class CheckAssignment:
             func_call = func + '(' + str(parms)[1:-1] + ')'
             return False, func_call, e
 
+def grade_student_functions(req_functions,student_functions):
+    count = 0
+    for q in req_functions:
+      if q in student_functions.keys() :
+         count+=1
+    if count==0 or req_functions==[]:
+       grade=0
+    else:
+       grade = 100* count/len(req_functions)
+
 def run_test(tasks,student_functions):
     output = ''
     correct_answer = 0
@@ -138,8 +148,6 @@ def run_test(tasks,student_functions):
     for k,v in student_functions.items():
         if globals().get(k)==None:
             globals()[k]=v
-
-
     ex_count = 0
     global run
     run=CheckAssignment()
@@ -164,10 +172,7 @@ def run_test(tasks,student_functions):
     # print('grade:',round(100 * correct_answer / len(run_results)))
     if  len(run_results)!=0:
       if questions_dic.get(curr_exercise_key)!=None :
-          if len(student_functions.keys())>len(questions_dic[curr_exercise_key]):
-              question_grade=80
-          else:
-              question_grade=80* len(student_functions.keys())/len(questions_dic[curr_exercise_key])
+          question_grade = grade_student_functions(questions_dic[curr_exercise_key],student_functions)
       else:
           question_grade=0
       score =round(question_grade+ 20 * correct_answer / len(run_results))
