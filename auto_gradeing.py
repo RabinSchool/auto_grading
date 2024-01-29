@@ -158,12 +158,13 @@ def run_test(tasks,student_functions):
     run=CheckAssignment()
     # tasks = function :0 , func_arg_list :1 ,   in_list :2  ,  exp_out_list :3  ,  return_values :4
     for i in range(len(tasks)):
+        run.test_mode = True
         start = time.time()
         run_results[ex_count] = run.run_task(tasks[i][0], tasks[i][1], tasks[i][2], tasks[i][3], tasks[i][4])
-        if i==3:
-            time.sleep(3)
         end = time.time()
-
+        
+        run.test_mode = False
+        run_time=end-start
         if run_results[ex_count][0]==True:
             correct_answer+=1
             output += f'Ok {tasks[i][0]}({"" if tasks[i][1]==[] else tasks[i][1]})  \tinput: {tasks[i][2]}  '
@@ -173,7 +174,7 @@ def run_test(tasks,student_functions):
 
             error_msg=run_results[ex_count][2] if run_time<2 else ' הפעולה לא סיימה את ריצתה בזמן המוגדר'
             output += f'X  {tasks[i][0]}({"" if tasks[i][1]==[] else tasks[i][1]})  \tinput: {tasks[i][2]} \tMessage: {error_msg}'
-
+            # print(output)
             output += '\n'
 
         ex_count += 1
@@ -187,7 +188,6 @@ def run_test(tasks,student_functions):
       tests_score =round(100 * correct_answer / len(run_results))
     else:
       tests_score = 0
+      question_grade=0
     final_grade=test_weight*tests_score + question_weight*question_grade
     return round(tests_score),output,round(question_grade),round(final_grade)
-
-
