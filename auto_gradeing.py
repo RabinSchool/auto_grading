@@ -172,7 +172,7 @@ def run_test(tasks,student_functions):
             output += '\n'
         else:
 
-            error_msg=run_results[ex_count][2] if run_time<2 else ' הפעולה לא סיימה את ריצתה בזמן המוגדר'
+            error_msg=run_results[ex_count][2] if run_time<2 else 'run time too long... '
             output += f'X  {tasks[i][0]}({"" if tasks[i][1]==[] else tasks[i][1]})  \tinput: {tasks[i][2]} \tMessage: {error_msg}'
             # print(output)
             output += '\n'
