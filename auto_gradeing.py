@@ -179,6 +179,6 @@ def run_test(tasks,student_functions):
       score =round(question_grade+ 20 * correct_answer / len(run_results))
     else:
       score = 0
-    return score,output
+    return score,output,question_grade
 
 
