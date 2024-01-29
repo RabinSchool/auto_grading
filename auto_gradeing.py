@@ -151,8 +151,7 @@ def run_test(tasks,student_functions):
     correct_answer = 0
     run_results = {}
     for k,v in student_functions.items():
-        if globals().get(k)==None:
-            globals()[k]=v
+        globals()[k]=v
     ex_count = 0
     global run
     run=CheckAssignment()
