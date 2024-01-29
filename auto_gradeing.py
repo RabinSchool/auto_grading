@@ -140,6 +140,7 @@ def grade_student_functions(req_functions,student_functions):
        grade=0
     else:
        grade = 100* count/len(req_functions)
+    return grade
 
 def run_test(tasks,student_functions):
     output = ''
