@@ -2,6 +2,9 @@ import pandas as pd
 import urllib.request
 import builtins as __builtin__
 
+test_weight=0.2
+question_weight=0.8
+
 # the key is the MD file source
 questions_dic={
     '2':['ex2','ex3','ex4'],
@@ -179,7 +182,7 @@ def run_test(tasks,student_functions):
       tests_score =round(100 * correct_answer / len(run_results))
     else:
       tests_score = 0
-    final_grade=0.2*tests_score + 0.8*question_grade
+    final_grade=test_weight*tests_score + question_weight*question_grade
     return round(tests_score),output,round(question_grade),round(final_grade)
 
 
