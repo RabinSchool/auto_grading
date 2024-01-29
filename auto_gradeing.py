@@ -176,9 +176,10 @@ def run_test(tasks,student_functions):
           question_grade = grade_student_functions(questions_dic[curr_exercise_key],student_functions)
       else:
           question_grade=0
-      score =round(100 * correct_answer / len(run_results))
+      tests_score =round(100 * correct_answer / len(run_results))
     else:
-      score = 0
-    return score,output,question_grade
+      tests_score = 0
+    final_grade=0.2*tests_score + 0.8*question_grade
+    return round(tests_score),output,round(question_grade),round(final_grade)
 
 
